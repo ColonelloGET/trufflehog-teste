@@ -1,0 +1,16 @@
+name: TruffleHog Scan
+
+on:
+  push:
+    branches:
+      - "**"  # Escaneia todas as branches no push, mas limita commits recentes
+  pull_request:
+    branches:
+      - main  # No PR para a main, escaneia tudo
+
+permissions:
+  contents: read
+
+jobs:
+  trufflehog:
+    runs-on: ubuntu-latest
