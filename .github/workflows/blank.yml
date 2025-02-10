@@ -13,6 +13,4 @@ jobs:
       - name: Executar TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
-          base: HEAD~1
-          head: HEAD
-          path: "."
+          scanArguments: "--regex --entropy=False ."
