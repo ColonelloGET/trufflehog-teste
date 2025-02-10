@@ -11,6 +11,5 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Executar TruffleHog
-        uses: trufflesecurity/trufflehog@main
-        with:
-          scanArguments: "--regex --entropy=False ."
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/repo ghcr.io/trufflesecurity/trufflehog:latest filesystem /repo --json
