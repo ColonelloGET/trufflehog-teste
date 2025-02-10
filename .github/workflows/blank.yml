@@ -1,0 +1,18 @@
+name: TruffleHog Scan
+
+on: [push, pull_request]
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Executar TruffleHog
+        uses: trufflesecurity/trufflehog@main
+        with:
+          base: HEAD~1
+          head: HEAD
+          path: "."
